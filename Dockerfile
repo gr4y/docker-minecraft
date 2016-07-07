@@ -33,4 +33,4 @@ RUN wget -q https://s3.amazonaws.com/Minecraft.Download/versions/1.10.2/minecraf
 RUN echo eula=true > eula.txt
 
 # Run minecraft.service
-CMD /usr/bin/screen -mS minecraft /bin/java -Xmx2048M -jar minecraft_server.10.2.jar nogui
+CMD java -Xmx2048M -jar minecraft_server.10.2.jar nogui
