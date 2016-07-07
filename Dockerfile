@@ -12,7 +12,7 @@ EXPOSE 25565
 # Update System
 RUN apt-get -y update && apt-get -y upgrade
 
-RUN apt-get install -y software-properties-common && \ 
+RUN apt-get install -y software-properties-common screen && \ 
     apt-add-repository ppa:webupd8team/java && \
     apt-get update -y && \
     apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys EEA14886 && \
