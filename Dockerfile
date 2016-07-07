@@ -17,16 +17,27 @@ RUN apt-get install -y software-properties-common && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* && \
     rm -rf /var/cache/oracle-jdk8-installer
-
-# Download Minecraft Server
-RUN wget -q https://s3.amazonaws.com/Minecraft.Download/versions/1.10.2/minecraft_server.1.10.2.jar
-
+	
 # Set JAVA_HOME
 ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
 
+# Download Minecraft Server
+RUN wget -q https://s3.amazonaws.com/Minecraft.Download/versions/1.10.2/minecraft_server.1.10.2.jar
+	
+# Copy minecraft.service file to container
+COPY minecraft.service /etc/systemd/system/minecraft.service
+
+# Enable minecraft.service
+RUN systemctl enable /etc/systemd/system/minecraft.service
+RUN chown -X /etc/systemd/system/minecraft.service
+
+# Accept Mojang EULA
+RUN echo eula=true > /data/eula.txt
+
+
 WORKDIR /data
 VOLUME /data
-
 EXPOSE 25565
 
-CMD echo eula=true > /data/eula.txt && java -jar /minecraft_server.1.10.2.jar
+# Run minecraft.service
+CMD systemctl start minecraft.service

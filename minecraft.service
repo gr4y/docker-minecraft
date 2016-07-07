@@ -1,0 +1,14 @@
+﻿[Unit]
+Description=Minecraft Server
+
+[Service]
+WorkingDirectory=/data
+
+ExecStart=/usr/bin/screen -DmS mc /bin/java -Xmx2048M -jar minecraft_server.10.2.jar nogui 
+ExecStop=/usr/bin/screen -p 0 -S mc -X eval 'stuff "say SERVER SHUTTING DOWN. Saving..."\\015'
+ExecStop=/usr/bin/screen -p 0 -S mc -X eval 'stuff "save-all"\\015'
+ExecStop=/usr/bin/screen -p 0 -S mc -X eval 'stuff "stop"\\015'
+ExecStop=/bin/sleep 2
+
+[Install]
+WantedBy=multi-user.target
