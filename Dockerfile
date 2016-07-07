@@ -29,7 +29,6 @@ COPY minecraft.service /etc/systemd/system/minecraft.service
 
 # Enable minecraft.service
 RUN systemctl enable /etc/systemd/system/minecraft.service
-RUN chown -X /etc/systemd/system/minecraft.service
 
 # Accept Mojang EULA
 RUN echo eula=true > /data/eula.txt
