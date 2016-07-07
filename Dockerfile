@@ -4,6 +4,11 @@ FROM ubuntu:xenial
 
 MAINTAINER Sascha Wessel <swessel@gr4yweb.de>
 
+WORKDIR /data
+VOLUME /data
+
+EXPOSE 25565
+
 # Update System
 RUN apt-get -y update && apt-get -y upgrade
 
@@ -24,19 +29,8 @@ ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
 # Download Minecraft Server
 RUN wget -q https://s3.amazonaws.com/Minecraft.Download/versions/1.10.2/minecraft_server.1.10.2.jar
 	
-# Copy minecraft.service file to container
-COPY minecraft.service /etc/systemd/system/minecraft.service
-
-# Enable minecraft.service
-RUN systemctl enable /etc/systemd/system/minecraft.service
-
 # Accept Mojang EULA
-RUN echo eula=true > /data/eula.txt
-
-
-WORKDIR /data
-VOLUME /data
-EXPOSE 25565
+RUN echo eula=true > eula.txt
 
 # Run minecraft.service
-CMD systemctl start minecraft.service
+CMD /usr/bin/screen -mS minecraft /bin/java -Xmx2048M -jar minecraft_server.10.2.jar nogui
