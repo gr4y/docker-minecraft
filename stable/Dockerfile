@@ -7,8 +7,10 @@ MAINTAINER Sascha Wessel <swessel@gr4yweb.de>
 # Update System
 RUN apt-get -y update && apt-get -y upgrade
 
+ENV MC_VERSION 1.11
+
 # Download Minecraft Server
-RUN wget -q https://s3.amazonaws.com/Minecraft.Download/versions/1.10.2/minecraft_server.1.10.2.jar
+RUN wget -q https://s3.amazonaws.com/Minecraft.Download/versions/$MC_VERSION/minecraft_server.$MC_VERSION.jar
 	
 # Accept Mojang EULA
 RUN echo eula=true > eula.txt
@@ -19,4 +21,4 @@ VOLUME /data
 EXPOSE 25565
 
 # Run minecraft.service
-CMD java -Xmx2048M -jar /minecraft_server.1.10.2.jar nogui
+CMD java -Xmx2048M -jar /minecraft_server.$MC_VERSION.jar nogui
