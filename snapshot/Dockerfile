@@ -6,7 +6,7 @@ MAINTAINER Sascha Wessel <swessel@gr4yweb.de>
 
 # Update System
 RUN apt-get -y update && apt-get -y upgrade
-ENV MC_VERSION 16w44a
+ENV MC_VERSION 1.11-pre1
 
 # Download Minecraft Server
 RUN wget -q https://s3.amazonaws.com/Minecraft.Download/versions/$MC_VERSION/minecraft_server.$MC_VERSION.jar
