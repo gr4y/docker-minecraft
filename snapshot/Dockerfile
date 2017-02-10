@@ -7,7 +7,7 @@ MAINTAINER Sascha Wessel <swessel@gr4yweb.de>
 # Update System
 RUN apt-get -y update && apt-get -y upgrade
 
-ENV SHA 7db0c61afa278d016cf1dae2fba0146edfbf2f8e
+ENV SHA 37441cab126ee2a4f292c9bf488c9dd800cff841
 ENV MC_VERSION 17w06a
 
 # Download Minecraft Server
