@@ -1,4 +1,4 @@
-# Minecraft 1.10.2
+# Minecraft 1.11.2
 
 FROM gr4y/docker-java8
 
@@ -7,11 +7,12 @@ MAINTAINER Sascha Wessel <swessel@gr4yweb.de>
 # Update System
 RUN apt-get -y update && apt-get -y upgrade
 
-ENV MC_VERSION 1.11
+ENV MC_VERSION 1.11.2
+ENV SHA f00c294a1576e03fddcac777c3cf4c7d404c4ba4
 
 # Download Minecraft Server
-RUN wget -q https://s3.amazonaws.com/Minecraft.Download/versions/$MC_VERSION/minecraft_server.$MC_VERSION.jar
-	
+RUN wget -q https://launcher.mojang.com/mc/game/$MC_VERSION/server/$SHA/server.jar
+
 # Accept Mojang EULA
 RUN echo eula=true > eula.txt
 
@@ -21,4 +22,4 @@ VOLUME /data
 EXPOSE 25565
 
 # Run minecraft.service
-CMD java -Xmx2048M -jar /minecraft_server.$MC_VERSION.jar nogui
+CMD java -Xmx2048M -jar /server.jar nogui
