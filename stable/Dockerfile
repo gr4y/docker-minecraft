@@ -1,4 +1,4 @@
-# Minecraft 1.11.2
+# Minecraft 1.12
 
 FROM gr4y/docker-java8
 
@@ -7,8 +7,8 @@ MAINTAINER Sascha Wessel <swessel@gr4yweb.de>
 # Update System
 RUN apt-get -y update && apt-get -y upgrade
 
-ENV MC_VERSION 1.11.2
-ENV SHA f00c294a1576e03fddcac777c3cf4c7d404c4ba4
+ENV MC_VERSION 1.12
+ENV SHA 8494e844e911ea0d63878f64da9dcc21f53a3463
 
 # Download Minecraft Server
 RUN wget -q https://launcher.mojang.com/mc/game/$MC_VERSION/server/$SHA/server.jar
