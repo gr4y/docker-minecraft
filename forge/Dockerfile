@@ -9,11 +9,11 @@ RUN apt-get -y update && apt-get -y upgrade
 
 ENV MC_VERSION 1.12
 ENV FORGE_VERSION 13.20.1.2386
-ENV FORGE_PREFIX forge-$MC_VERSION-$FORGE_VERSION
+ENV FORGE_PREFIX forge-${MC_VERSION}-${FORGE_VERSION}
 
 # Download Minecraft Server
-RUN wget -q http://files.minecraftforge.net/maven/net/minecraftforge/forge/$MC_VERSION-$FORGE_VERSION/$FORGE_PREFIX-installer.jar
-RUN java -Xmx2048M -jar /$FORGE_PREFIX-installer.jar --installServer && rm -r $FORGE_PREFIX-installer.jar
+RUN wget -q http://files.minecraftforge.net/maven/net/minecraftforge/forge/${MC_VERSION}-${FORGE_VERSION}/${FORGE_PREFIX}-installer.jar
+RUN java -Xmx2048M -jar /${FORGE_PREFIX}-installer.jar --installServer && rm -r ${FORGE_PREFIX}-installer.jar
 
 # Accept Mojang EULA
 RUN echo eula=true > eula.txt
@@ -24,4 +24,4 @@ VOLUME /data
 EXPOSE 25565
 
 # Run minecraft.service
-CMD java -Xmx2048M -jar /$FORGE_PREFIX-universal.jar nogui
+CMD java -Xmx2048M -jar /${FORGE_PREFIX-universal}.jar nogui
