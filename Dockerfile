@@ -8,7 +8,7 @@ MAINTAINER Sascha Wessel <swessel@gr4yweb.de>
 RUN apt-get -y update && apt-get -y upgrade
 
 ENV MC_VERSION 1.12.2
-ENV FORGE_VERSION 14.23.0.2491
+ENV FORGE_VERSION 14.23.0.2500
 ENV FORGE_PREFIX forge-${MC_VERSION}-${FORGE_VERSION}
 ENV FORGE_URL http://files.minecraftforge.net/maven/net/minecraftforge/forge/${MC_VERSION}-${FORGE_VERSION}/${FORGE_PREFIX}-installer.jar
 # Download Minecraft Server
