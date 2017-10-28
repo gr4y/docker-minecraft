@@ -7,8 +7,8 @@ MAINTAINER Sascha Wessel <swessel@gr4yweb.de>
 # Update System
 RUN apt-get -y update && apt-get -y upgrade
 
-ENV MC_VERSION 1.12.1
-ENV SHA 2ce9731e5bafdf69014e4e6db1cc56149958c5a8
+ENV MC_VERSION 1.12.2
+ENV SHA 886945bfb2b978778c3a0288fd7fab09d315b25f
 
 # Download Minecraft Server
 RUN wget -q https://launcher.mojang.com/mc/game/$MC_VERSION/server/$SHA/server.jar
