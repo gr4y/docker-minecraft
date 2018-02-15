@@ -11,6 +11,7 @@ ENV MC_VERSION 18w07b
 
 # Download Minecraft Server
 RUN wget -q https://s3.amazonaws.com/Minecraft.Download/versions/$MC_VERSION/minecraft_server.$MC_VERSION.jar
+RUN rm -r server.jar && ln -s minecraft_server.$MC_VERSION.jar server.jar
 
 # Accept Mojang EULA
 RUN echo eula=true > eula.txt
