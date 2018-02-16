@@ -7,11 +7,11 @@ MAINTAINER Sascha Wessel <swessel@gr4yweb.de>
 # Update System
 RUN apt-get -y update && apt-get -y upgrade
 
-ENV MC_VERSION 18w07b
+ENV MC_VERSION 18w07c
 
 # Download Minecraft Server
 RUN wget -q https://s3.amazonaws.com/Minecraft.Download/versions/$MC_VERSION/minecraft_server.$MC_VERSION.jar
-RUN rm -r server.jar && ln -s minecraft_server.$MC_VERSION.jar server.jar
+RUN ln -s minecraft_server.$MC_VERSION.jar server.jar
 
 # Accept Mojang EULA
 RUN echo eula=true > eula.txt
