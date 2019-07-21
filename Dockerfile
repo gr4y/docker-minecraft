@@ -1,4 +1,4 @@
-# Minecraft Forge 1.14.4
+# Minecraft Forge 1.12.2
 
 FROM gr4y/docker-java8
 
@@ -7,8 +7,8 @@ MAINTAINER Sascha Wessel <swessel@gr4yweb.de>
 # Update System
 RUN apt-get -y update && apt-get -y upgrade
 
-ENV MC_VERSION 1.14.4
-ENV FORGE_VERSION 28.0.11
+ENV MC_VERSION 1.12.2
+ENV FORGE_VERSION 14.23.5.2838
 ENV FORGE_PREFIX forge-${MC_VERSION}-${FORGE_VERSION}
 ENV FORGE_URL http://files.minecraftforge.net/maven/net/minecraftforge/forge/${MC_VERSION}-${FORGE_VERSION}/${FORGE_PREFIX}-installer.jar
 # Download Minecraft Server
