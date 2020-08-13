@@ -22,6 +22,7 @@ WORKDIR /data
 VOLUME /data
 
 EXPOSE 25565
+EXPOSE 25575
 
 # Run minecraft.service
-CMD java -Xmx4096M -jar /${FORGE_PREFIX}-universal.jar nogui
+CMD java -Xmx4096M -jar /${FORGE_PREFIX}-universal.jar nogui -Dfml.queryResult=confirm
