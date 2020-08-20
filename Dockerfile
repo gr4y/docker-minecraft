@@ -6,7 +6,7 @@ LABEL maintainer="swessel+dockerhub@gr4yweb.de"
 # Update System
 RUN apt-get -y update && apt-get -y upgrade
 
-ENV JVM_OPTS "-Xmx2048m"
+ENV JVM_OPTS "-Xmx2048M"
 ENV MC_VERSION 1.16.2
 ENV FORGE_VERSION 33.0.7
 ENV FORGE_PREFIX forge-${MC_VERSION}-${FORGE_VERSION}
