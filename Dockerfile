@@ -1,8 +1,7 @@
 # Minecraft snapshot
 
 FROM gr4y/docker-java8
-
-MAINTAINER Sascha Wessel <swessel@gr4yweb.de>
+LABEL maintainer="swessel+dockerhub@gr4yweb.de"
 
 # Update System
 RUN apt-get -y update && apt-get -y upgrade
