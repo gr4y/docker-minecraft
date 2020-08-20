@@ -24,4 +24,4 @@ VOLUME /data
 EXPOSE 25565 25575
 
 # Run minecraft.service
-CMD java ${JVM_OPTS} -jar /${FORGE_PREFIX}-universal.jar nogui
+CMD java ${JVM_OPTS} -jar /${FORGE_PREFIX}.jar nogui
